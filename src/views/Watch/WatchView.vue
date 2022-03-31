@@ -22,6 +22,14 @@ watchEffect(async () => {
   const response = await fetch(url.value);
   data.value = await response.json();
 });
+
+// Los watchers se ejecutan antes del update del componente, por lo que si queremos acceder al DOM actualizado tras el watcher, podemos usar watchPostEffect o pasarle {flush: 'post'} tras el callback del watch
+
+//Los watchers se detienen de forma automática en el unmount del componente, a menos que los hayamos definido dentro de una función asíncrona, en este caso, deberemos detenerlos de forma manual, por ejemplo:
+// const unwatch = watchEffect(() => {})
+
+// // ...later, when no longer needed
+// unwatch()
 </script>
 
 <template>
