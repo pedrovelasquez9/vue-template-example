@@ -12,6 +12,16 @@ const isBold = ref(false);
 const showSection = ref(true);
 const showInnerSection = ref(true);
 const jediName = ref("");
+const sithCouncil = ref("");
+const checkedNames = ref([]);
+const selectOptions = ref([
+  { text: "Sith", value: "Siths" },
+  { text: "Jedi", value: "Jedis" },
+]);
+const forceUserType = ref("");
+const piloto = ref("");
+const dynamicTrueValue = ref("si");
+const dynamicFalseValue = ref("no");
 
 //Definimos una función para incrementar el contador definido en el state a través del binding del template
 const increaseCounter = () => {
@@ -85,7 +95,59 @@ const submitHandler = () => {
     <form>
       <label for="name">Jedi Name: {{ jediName }}</label>
       <input type="text" name="name" id="name" v-model="jediName" />
+      <textarea
+        name="sith-council"
+        id="sith-council"
+        v-model="sithCouncil"
+      ></textarea>
+      <!-- white-space: pre line para mostrar el texto multi línea del modelo -->
+      <p style="white-space: pre-line">{{ sithCouncil }}</p>
+      <!-- Checkboxes con modelo en un array -->
+      <div>Checked names: {{ checkedNames }}</div>
+
+      <input
+        type="checkbox"
+        id="Darth Maul"
+        value="Darth Maul"
+        v-model="checkedNames"
+      />
+      <label for="Darth Maul">Darth Maul</label>
+
+      <input
+        type="checkbox"
+        id="Darth Sidious"
+        value="Darth Sidious"
+        v-model="checkedNames"
+      />
+      <label for="Darth Sidious">Darth Sidious</label>
+
+      <input
+        type="checkbox"
+        id="Darth Vader"
+        value="Darth Vader"
+        v-model="checkedNames"
+      />
+      <label for="Darth Vader">Darth Vader</label>
       <input type="submit" value="Enviar" @click.prevent="submitHandler" />
+      <select v-model="forceUserType">
+        <!-- El binding de :value soporta también data en formatos distintos a strings, por ejemplo, un objeto -->
+        <option v-for="option in selectOptions" :value="option.value">
+          {{ option.text }}
+        </option>
+      </select>
+
+      <div>Selected: {{ forceUserType }}</div>
+      <!-- Los atributos true-value y false value son propios de vue y nos sirven para setear valores toggle por defecto en el checkbox por ejemplo, solo funcionan en combinación con el v-model -->
+      <label for="piloto">Eres piloto?</label>
+      <input
+        name="piloto"
+        type="checkbox"
+        v-model="piloto"
+        :true-value="dynamicTrueValue"
+        :false-value="dynamicFalseValue"
+      />
+      <span>{{ piloto }}</span>
+      <!-- Modificadores: ayudan a formatear la data o a reaccionar a eventos específicos en el binding del input, por ejemplo: .lazy, .number, .trim -->
     </form>
   </section>
 </template>
