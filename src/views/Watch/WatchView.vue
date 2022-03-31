@@ -1,10 +1,12 @@
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, watchEffect } from "vue";
 
 // Con watch podemos hacer seguimiento de objetos, refs, arrays, getters, computed refs, etc. de forma parecida al computed ref, pero con la posibilidad de mutar lo que necesitemos dentro del callback
 
 const order = ref("");
 const trooperAnswer = ref("");
+const url = ref("https://jsonplaceholder.typicode.com/todos/1");
+const data = ref([]);
 
 //"Observamos" el ref "order" para cambiar el valor de trooperAnswer dependiendo del número de orden identificado en el string
 watch(order, (newOrder) => {
@@ -14,6 +16,12 @@ watch(order, (newOrder) => {
     trooperAnswer.value = "Rebel scum!";
   }
 });
+
+//WatchEffect hace lo mismo que el watch, pero de forma implícita "sigue" todos los refs que estén involucrados en la ejecución del callback
+watchEffect(async () => {
+  const response = await fetch(url.value);
+  data.value = await response.json();
+});
 </script>
 
 <template>
@@ -21,6 +29,9 @@ watch(order, (newOrder) => {
     <label for="">Darth Sidious: </label>
     <input type="text" v-model="order" />
     <p>Trooper: {{ trooperAnswer }}</p>
+    <br />
+    <input type="text" v-model="url" />
+    <p>{{ data }}</p>
   </section>
 </template>
 
