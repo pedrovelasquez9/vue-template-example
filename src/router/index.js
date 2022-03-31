@@ -17,6 +17,26 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/About/AboutView.vue"),
     },
+    {
+      path: "/counter",
+      name: "counter",
+      component: () => import("../views/Counter/CounterView.vue"),
+    },
+    {
+      path: "/binding",
+      name: "binding",
+      component: () => import("../views/Binding/BindingView.vue"),
+    },
+    {
+      path: "/computed-ref",
+      name: "computed-ref",
+      component: () => import("../views/ComputedRef/ComputedView.vue"),
+    },
+    {
+      path: "/form",
+      name: "form",
+      component: () => import("../views/Form/FormView.vue"),
+    },
   ],
 });
 
