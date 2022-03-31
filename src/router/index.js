@@ -37,6 +37,11 @@ const router = createRouter({
       name: "form",
       component: () => import("../views/Form/FormView.vue"),
     },
+    {
+      path: "/watch",
+      name: "watch",
+      component: () => import("../views/Watch/WatchView.vue"),
+    },
   ],
 });
 

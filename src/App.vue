@@ -23,6 +23,7 @@ import HelloWorld from "@/components/HelloWorld/HelloWorld.vue";
         <RouterLink to="/binding">Binding</RouterLink>
         <RouterLink to="/computed-ref">Computed Ref</RouterLink>
         <RouterLink to="/form">Form</RouterLink>
+        <RouterLink to="/watch">Watch</RouterLink>
       </nav>
     </div>
   </header>
