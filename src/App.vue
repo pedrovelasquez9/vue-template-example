@@ -24,6 +24,8 @@ import HelloWorld from "@/components/HelloWorld/HelloWorld.vue";
         <RouterLink to="/computed-ref">Computed Ref</RouterLink>
         <RouterLink to="/form">Form</RouterLink>
         <RouterLink to="/watch">Watch</RouterLink>
+        <RouterLink to="/template-refs">Template refs</RouterLink>
+        <RouterLink to="/tabs">Tabs</RouterLink>
       </nav>
     </div>
   </header>

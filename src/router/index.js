@@ -42,6 +42,16 @@ const router = createRouter({
       name: "watch",
       component: () => import("../views/Watch/WatchView.vue"),
     },
+    {
+      path: "/template-refs",
+      name: "template-refs",
+      component: () => import("../views/TemplateRefs/TemplateRefsView.vue"),
+    },
+    {
+      path: "/tabs",
+      name: "tabs",
+      component: () => import("../views/Tabs/TabsView.vue"),
+    },
   ],
 });
 
