@@ -5,15 +5,25 @@ import ToolingIcon from "../icons/IconTooling.vue";
 import EcosystemIcon from "../icons/IconEcosystem.vue";
 import CommunityIcon from "../icons/IconCommunity.vue";
 import SupportIcon from "../icons/IconSupport.vue";
+import Info from "../Info/Info.vue";
 </script>
 
 <template>
+  <!-- también podemos usar v-slot="{message}" para recibir props desde un slot sin nombre del hijo, si se necesita recibir desde más de un slot, no se puede mezclar el v-slot con el uso de template y named slots -->
+  <Info v-slot="{ test }">
+    {{ test }}
+  </Info>
   <WelcomeItem>
+    <!-- Todo lo que se llame dentro de las etiquetas del componente, en este caso WelcomeItem, se renderiza en los slots del componente WelcomeItem -->
+    <!-- Este template se renderiza en un slot con nombre "icon" -->
     <template #icon>
       <DocumentationIcon />
     </template>
-    <template #heading>Documentation</template>
-
+    <!-- Este template se renderiza en un slot con nombre "heading" y recibimos un prop desde el componente hijo"-->
+    <template #heading="headingProps"
+      >Documentation {{ headingProps.message }}</template
+    >
+    <!-- Esta sección se renderiza en un slot sin nombre, por lo tanto, un default slot -->
     Vue’s
     <a target="_blank" href="https://vuejs.org/">official documentation</a>
     provides you with all information you need to get started.

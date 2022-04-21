@@ -1,7 +1,7 @@
 <script setup>
 import { defineProps, defineEmits } from "vue";
 //Definimos los props que pueden llegar al componente
-defineProps(["buttonText"]);
+defineProps(["buttonText", "randomText"]);
 //Definimos los eventos que puede emitir el componente
 const events = defineEmits(["change-text"]);
 
