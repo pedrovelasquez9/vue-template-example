@@ -6,9 +6,15 @@ import EcosystemIcon from "../icons/IconEcosystem.vue";
 import CommunityIcon from "../icons/IconCommunity.vue";
 import SupportIcon from "../icons/IconSupport.vue";
 import Info from "../Info/Info.vue";
+import { inject } from "vue";
+
+// Inyectamos el valor y la función que actualiza el valor reactivo que se provee desde el componente HomeView.vue
+const { msg, updateRef } = inject("message");
 </script>
 
 <template>
+  <h1>Valor reactivo inyectado {{ msg }}</h1>
+  <button @click="updateRef">Cambiar valor inyectado</button>
   <!-- también podemos usar v-slot="{message}" para recibir props desde un slot sin nombre del hijo, si se necesita recibir desde más de un slot, no se puede mezclar el v-slot con el uso de template y named slots -->
   <Info v-slot="{ test }">
     {{ test }}
