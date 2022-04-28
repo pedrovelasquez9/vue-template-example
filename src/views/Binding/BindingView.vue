@@ -1,6 +1,6 @@
-<!-- Cuando tenemos un script con el attr setup estamos usando la API de Composición, cuando no, la API de opciones -->
-<!-- NOTE: SFC + <script setup> syntax for Composition API code examples is the most common usage for Vue developers. -->
 <script setup>
+// <!-- Cuando tenemos un script con el attr setup estamos usando la API de Composición, cuando no, la API de opciones -->
+// <!-- NOTE: SFC + <script setup> syntax for Composition API code examples is the most common usage for Vue developers. -->
 //Definimos una variable en el componente para hacer un binding del attr "id" en la plantilla
 const prueba = "Hola mundo";
 

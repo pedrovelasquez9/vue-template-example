@@ -1,8 +1,7 @@
-<!-- Cuando tenemos un script con el attr setup estamos usando la API de Composición, cuando no, la API de opciones -->
-<!-- NOTE: SFC + <script setup> syntax for Composition API code examples is the most common usage for Vue developers. -->
 <script setup>
 import { ref, onMounted, nextTick } from "vue";
-
+// <!-- Cuando tenemos un script con el attr setup estamos usando la API de Composición, cuando no, la API de opciones -->
+// <!-- NOTE: SFC + <script setup> syntax for Composition API code examples is the most common usage for Vue developers. -->
 /**
  * Definimos un contador y una función para incrementar su valor y probar el two way data binding desde la plantilla
  * El ref se usa para definir un state con un valor inicial y que vue haga el trazado de sus cambios
